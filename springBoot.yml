@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cc
+  template:
+    metadata:
+      labels:
+        app: cc
+    spec:
+      containers:
+        - name: my-angular-app
+          image: nipuntlankaiit/springboot:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+# service type loadbalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cc-svc
+spec:
+  selector:
+    app: cc
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: LoadBalancer
