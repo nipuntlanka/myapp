@@ -9,5 +9,5 @@ ENV PROJECT_HOME /opt/app
 COPY target/cc-0.0.1-SNAPSHOT.jar $PROJECT_HOME/cc-0.0.1-SNAPSHOT.jar
 
 WORKDIR $PROJECT_HOME
-
+EXPOSE 8082
 CMD ["java" ,"-jar","./cc-0.0.1-SNAPSHOT.jar"]
