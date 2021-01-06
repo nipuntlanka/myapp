@@ -13,7 +13,7 @@ spec:
         app: cc
     spec:
       containers:
-        - name: my-angular-app
+        - name: cc
           image: nipuntlankaiit/springboot:latest
           imagePullPolicy: Always
           ports:
