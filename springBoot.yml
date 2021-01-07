@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cc2
+  name: cc3
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cc2
+      app: cc3
   template:
     metadata:
       labels:
-        app: cc2
+        app: cc3
     spec:
       containers:
-        - name: cc2
+        - name: cc3
           image: nipuntlankaiit/springboot:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8082
+            - containerPort: 8083
 ---
 # Node Port Service For SpringApp
 apiVersion: v1
 kind: Service
 metadata:
-  name: cc2
+  name: cc3
 spec:
   type: NodePort
   ports:
-    - port: 8082
-      targetPort: 8082
+    - port: 8083
+      targetPort: 8083
   selector:
-    app: cc2
+    app: cc3
